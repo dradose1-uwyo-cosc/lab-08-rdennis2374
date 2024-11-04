@@ -19,12 +19,15 @@ def check(string):
     if isinstance(string, int):
         new_string = int(string)
         print(new_string)
+        return(new_string)
     elif isinstance(string, float):
         new_string = float(string)
         print("%.1f" % new_string)
+        return("%.1f" % new_string)
     else:
         print("False")
-check(21.4)
+        return False
+check()
 
 print("*" * 75)
 
