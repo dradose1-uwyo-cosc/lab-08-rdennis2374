@@ -18,16 +18,12 @@ def check(string):
     new_string = ""
     if isinstance(string, int):
         new_string = int(string)
-        print(new_string)
         return(new_string)
     elif isinstance(string, float):
         new_string = float(string)
-        print("%.1f" % new_string)
         return("%.1f" % new_string)
     else:
-        print("False")
         return False
-check()
 
 print("*" * 75)
 
@@ -52,20 +48,23 @@ print("*" * 75)
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
 while True:
-    slope = input("What is the slope?")
-    intercept = input("What is the y intercept?")
-    lower = input("What is the lower bound?")
-    upper = input("What is the upper bound?")
-    if int(lower) >= int(upper) or isinstance(lower, int) or isinstance(upper, int):
-        print("False")
+    slope = input("What is the slope? Or type Exit to quit.")
+    if slope.lower() != "exit":
+        intercept = input("What is the y intercept?")
+        lower = input("What is the lower bound?")
+        upper = input("What is the upper bound?")
+        if int(lower) >= int(upper) or check(lower) != int() or check(upper) != int():
+            print("False")
+        else:
+            m = float(slope)
+            b = float(intercept)
+            lower_bound = int(lower)
+            upper_bound = int(upper)
+            for i in range (lower_bound, upper_bound+1):
+                number = ((m*i)+b)
+                print(number)
+            break
     else:
-        m = float(slope)
-        b = float(intercept)
-        lower_bound = int(lower)
-        upper_bound = int(upper)
-        for i in range (lower_bound, upper_bound+1):
-            number = ((m*i)+b)
-            print(number)
         break
 print("*" * 75)
 
@@ -86,19 +85,23 @@ def root(a,b,c):
 
 def quadratic_formula():
     while True:
-        a = float(input("What is the value of a?"))
-        b = float(input("What is the value of b?"))
-        c = float(input("What is the value of c?"))
-        square_root = root(a,b,c)
-        if square_root == 0:
-            print("null")
-            continue
-        else:
-            root_1 = (-b+square_root)/(2*a)
-            print(root_1)
-            root_2 = (-b-square_root)/(2*a)
-            print(root_2)
+        a = input("What is the value of a? Or type exit to quit.")
+        if a.lower() == "exit":
             break
+        else:
+            a = int(a)
+            b = int(input("What is the value of b?"))
+            c = int(input("What is the value of c?"))
+            square_root = root(a,b,c)
+            if square_root == 0:
+                print("null")
+                continue
+            else:
+                root_1 = (-b+square_root)/(2*a)
+                print(root_1)
+                root_2 = (-b-square_root)/(2*a)
+                print(root_2)
+                break
 quadratic_formula()
 
 
