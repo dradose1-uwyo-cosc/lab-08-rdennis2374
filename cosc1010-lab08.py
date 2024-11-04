@@ -1,9 +1,9 @@
-# Your Name Here
+# Ryan Dennis
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section:
-# Sources, people worked with, help given to:
+# Submission Date 11/4/2024
+# Lab 08
+# Lab Section:14
+# Sources, people worked with, help given to: Stack Overflow, Geeks For Geeks
 # your
 # comments
 # here
@@ -14,6 +14,17 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
+def check(string):
+    new_string = ""
+    if isinstance(string, int):
+        new_string = int(string)
+        print(new_string)
+    elif isinstance(string, float):
+        new_string = float(string)
+        print("%.1f" % new_string)
+    else:
+        print("False")
+check(21.4)
 
 print("*" * 75)
 
@@ -37,7 +48,22 @@ print("*" * 75)
 # Exit on the word exit
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
-
+while True:
+    slope = input("What is the slope?")
+    intercept = input("What is the y intercept?")
+    lower = input("What is the lower bound?")
+    upper = input("What is the upper bound?")
+    if int(lower) >= int(upper) or isinstance(lower, int) or isinstance(upper, int):
+        print("False")
+    else:
+        m = float(slope)
+        b = float(intercept)
+        lower_bound = int(lower)
+        upper_bound = int(upper)
+        for i in range (lower_bound, upper_bound+1):
+            number = ((m*i)+b)
+            print(number)
+        break
 print("*" * 75)
 
 
@@ -48,3 +74,29 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+def root(a,b,c):
+    number = (((b**2)-4*a*c))
+    if number < 0:
+        return 0
+    else:
+        return number**.5
+
+def quadratic_formula():
+    while True:
+        a = float(input("What is the value of a?"))
+        b = float(input("What is the value of b?"))
+        c = float(input("What is the value of c?"))
+        square_root = root(a,b,c)
+        if square_root == 0:
+            print("null")
+            continue
+        else:
+            root_1 = (-b+square_root)/(2*a)
+            print(root_1)
+            root_2 = (-b-square_root)/(2*a)
+            print(root_2)
+            break
+quadratic_formula()
+
+
+
