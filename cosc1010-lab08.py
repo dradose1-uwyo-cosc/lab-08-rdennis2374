@@ -1,6 +1,6 @@
 # Ryan Dennis
 # UWYO COSC 1010
-# Submission Date 11/4/2024
+# Submission Date 11/10/2024
 # Lab 08
 # Lab Section:14
 # Sources, people worked with, help given to: Stack Overflow, Geeks For Geeks
@@ -53,7 +53,9 @@ while True:
         intercept = input("What is the y intercept?")
         lower = input("What is the lower bound?")
         upper = input("What is the upper bound?")
-        if int(lower) >= int(upper) or check(lower) != int() or check(upper) != int():
+        if lower.isdigit() != True or upper.isdigit() != True:
+            print("False")
+        elif int(lower) >= int(upper):
             print("False")
         else:
             m = float(slope)
